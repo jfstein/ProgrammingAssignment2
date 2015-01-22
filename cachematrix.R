@@ -1,8 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These functions solve for the inverse of a matrix using caching.  
+## If the inverse has not been computed, it will be computed.  If it has already
+## been computed, the result will be retrieved from cache.
 
-## Write a short comment describing this function
-
+## This function creates a special "matrix", which is really just a list of 
+## functions to 1) set the matrix, 2) get the matrix, 3) set the inverse, and 
+## 4) get the inverse
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
         set <- function(y) {rnorm
@@ -18,8 +20,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## This function computes the inverse of the user-defined matrix.  However, it
+## first checks to see if the result is in cache; if so, it will skip the computation.
 cacheSolve <- function(x, ...) {
         m <- x$getinv()
         if(!is.null(m)) {
